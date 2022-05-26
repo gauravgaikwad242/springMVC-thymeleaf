@@ -1,0 +1,9 @@
+@charset "ISO-8859-1";
+
+table {
+	background: green;
+}
+.head{
+	background-color: red;
+	color: green;
+	}

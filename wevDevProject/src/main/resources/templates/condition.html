@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>conditional statements</title>
+</head>
+<body>
+	<h1 th:text="${title}"></h1>
+	<h2>user is <span th:text="${statusActive} ? 'ACTIVE':'NOTACTIVE'"
+					  th:style="${statusActive} ? 'color:green':'color:red'"></span> </h2>
+	
+	<div th:with="gender=male">
+		<p th:if="${gender}=='male'">this is a man</p>
+		<p th:unless="${gender}=='female'">this is a woman</p>
+	</div>
+	
+	<div th:switch="${ #lists.size(names)}">
+		<h3 th:case="'0'">zero element</h3>
+		<h3 th:case="'1'">one element</h3>
+		<h3 th:case="*">list contains more than one element</h3>
+	</div>
+	
+	
+	
+	
+	
+	
+<!-- -----------------------notes conditions in thymeleaf------------------------ -->
+	
+	<table style="border: solid; 
+		   width:100vw;
+		  " >
+		<thead >
+			<tr style="color: red; border: 1px solid;">
+				<th>Elvis Operator</th>
+				<th>If-unless</th>
+				<th>Switch-case</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>condition?if cond true: if cond false</td>	
+				<td> <div>if the th:if condition is true then the block gets executed</div>
+					<div>and if the th:unless condition is false then the block gets executed</div>
+				</td>
+				<td>j</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

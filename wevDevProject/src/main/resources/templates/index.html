@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Thymeleaf basics</title>
+<link rel="stylesheet" href="templates/style.css" />
+</head>
+<body>
+<h1 class="head">hello World!</h1>
+
+<!-- for each loop -->
+			<table>
+			<thead><tr> <td>names</td> <td>email</td> </tr></thead>
+				<tbody > 
+					<tr>
+			
+						<!-- binding objects -->
+						<td th:text="${gaurav.name}"></td>
+						<td th:text= "${gaurav.email}"></td>
+					</tr> 
+				</tbody>
+			</table>
+
+<!-- iteration or looping in th
+also using status.index 
+see use of +' '+ -->
+			<div th:each="string,status: ${strings}">
+				<p th:text="'id of ' + ${status.index+1}+' '+ ${string}"></p>
+			</div>
+	
+<!-- more use of status 
+		status contains
+		index
+		count
+		size:list size
+		even/odd
+		first
+		last -->
+		
+		<div th:each="list,status: ${strings}">
+<!-- this line uses ternery operator-->
+			<span th:style="${status.odd} ? 'font-weight:bold' :' ' " 
+				  th:text="${status.index+1}+' '+ ${list}"></span>
+		</div>
+		
+		
+	
+<!-- variable declaration 
+and operations on the variables-->
+			<div th:with='a=43,b=44,c=${strings}'>
+				<p th:text="${a}"></p>
+				<p th:text="${b}"></p>
+				<p th:text="${c}"></p>
+				<p th:text="'addition of '+ ${a}+' and '+${b}+' is '+${a+b}"></p>
+			</div>
+	
+	
+<!-- string operations similat to string methods in java -->
+			<div th:with="name=gaurav">
+				<p th:text="${ #strings.toUpperCase(name)}"></p>
+				<p th:text="'length of the string is '+${ #strings.length(name)}"></p>
+				
+			</div>
+			
+
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
